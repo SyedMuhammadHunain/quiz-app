@@ -1,0 +1,27 @@
+:host form {
+  padding: 2rem;
+  font-size: 3rem;
+}
+
+label,
+input {
+  border-radius: 5px;
+  display: block;
+}
+
+input {
+  border: 0.7px solid #c7c4bf;
+}
+
+.selected-box,
+.category-box {
+  border: 1px solid #c7c4bf;
+  height: 11vh;
+  border-radius: 5px;
+  padding: 2rem;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}

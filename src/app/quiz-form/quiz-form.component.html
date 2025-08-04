@@ -1,0 +1,62 @@
+<form>
+  <fieldset>
+    <legend>Test Form</legend>
+    <label for="test-name">Test Name</label>
+    <input id="test-name" type="text" placeholder="Enter test name..." />
+
+    <label for="category-box">Category</label>
+    <div class="category-box">
+      <button
+        *ngIf="isComputerScienceVisible()"
+        type="button"
+        (click)="
+          category.set('Computer Science'); isComputerScienceVisible.set(false)
+        "
+      >
+        Computer Science
+      </button>
+      <button
+        *ngIf="isMathematicsVisible()"
+        type="button"
+        (click)="category.set('Mathematics'); isMathematicsVisible.set(false)"
+      >
+        Mathematics
+      </button>
+      <button
+        *ngIf="isGeneralKnowledgeVisible()"
+        type="button"
+        (click)="
+          category.set('General Knowledge');
+          isGeneralKnowledgeVisible.set(false)
+        "
+      >
+        General Knowledge
+      </button>
+    </div>
+
+    <label for="selected-box">Selected Category</label>
+    <div class="selected-box">
+      <button
+        *ngIf="!isComputerScienceVisible()"
+        (click)="isComputerScienceVisible.set(true)"
+      >
+        Computer Science
+      </button>
+      <button
+        *ngIf="!isMathematicsVisible()"
+        (click)="isMathematicsVisible.set(true)"
+      >
+        Mathematics
+      </button>
+      <button
+        *ngIf="!isGeneralKnowledgeVisible()"
+        (click)="isGeneralKnowledgeVisible.set(true)"
+      >
+        General Knowledge
+      </button>
+    </div>
+
+    <button>Submit</button>
+    <button (click)="onCloseForm()">Close</button>
+  </fieldset>
+</form>

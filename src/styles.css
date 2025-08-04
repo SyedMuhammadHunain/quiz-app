@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62%;
+}
+
+p,
+label,
+h1,
+input,
+button {
+  font-family: "Inter";
+  font-size: 2rem;
+  padding: 1.5rem;
+  margin: 1rem;
+}
+
+button {
+  border: 0.7px solid #c7c4bf;
+  background-color: whitesmoke;
+  height: 6rem;
+  width: 12rem;
+  padding: 1rem;
+  margin: 1rem;
+  font-size: 1.6rem;
+  border-radius: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: gainsboro;
+}
