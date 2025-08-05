@@ -1,8 +1,13 @@
-<form>
+<form (ngSubmit)="onFormSubmit(testname.value)">
   <fieldset>
     <legend>Test Form</legend>
     <label for="test-name">Test Name</label>
-    <input id="test-name" type="text" placeholder="Enter test name..." />
+    <input
+      id="test-name"
+      type="text"
+      placeholder="Enter test name..."
+      #testname
+    />
 
     <label for="category-box">Category</label>
     <div class="category-box">
@@ -10,7 +15,9 @@
         *ngIf="isComputerScienceVisible()"
         type="button"
         (click)="
-          category.set('Computer Science'); isComputerScienceVisible.set(false)
+          label.set('Computer Science');
+          isComputerScienceVisible.set(false);
+          onSelectCategory('Computer Science')
         "
       >
         Computer Science
@@ -18,7 +25,11 @@
       <button
         *ngIf="isMathematicsVisible()"
         type="button"
-        (click)="category.set('Mathematics'); isMathematicsVisible.set(false)"
+        (click)="
+          label.set('Mathematics');
+          isMathematicsVisible.set(false);
+          onSelectCategory('Mathematics')
+        "
       >
         Mathematics
       </button>
@@ -26,8 +37,9 @@
         *ngIf="isGeneralKnowledgeVisible()"
         type="button"
         (click)="
-          category.set('General Knowledge');
-          isGeneralKnowledgeVisible.set(false)
+          label.set('General Knowledge');
+          isGeneralKnowledgeVisible.set(false);
+          onSelectCategory('General Knowledge')
         "
       >
         General Knowledge
@@ -56,7 +68,9 @@
       </button>
     </div>
 
-    <button>Submit</button>
-    <button (click)="onCloseForm()">Close</button>
+    <div [style.textAlign]="'center'">
+      <button type="submit">Submit</button>
+      <button (click)="onCloseForm()">Close</button>
+    </div>
   </fieldset>
 </form>
