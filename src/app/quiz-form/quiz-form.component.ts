@@ -5,6 +5,7 @@ import { LocalStorageService } from '../local-storage.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { QuizService } from './quiz.service';
+import { LoadingService } from '../loading.service';
 
 @Component({
   selector: 'app-quiz-form',
@@ -21,15 +22,21 @@ export class QuizFormComponent {
     testName: '',
     category: [],
   });
+  isLoading = signal(false);
 
   private quizService = inject(QuizService);
   private localStorageService = inject(LocalStorageService)
-
+  private loadingService = inject(LoadingService);
 
   @Output() close = new EventEmitter();
+  @Output() submit = new EventEmitter();
 
   onCloseForm() {
     this.close.emit();
+  }
+
+  onSubmit() {
+    this.submit.emit(true);
   }
 
   onSelectCategory(categoryName: string) {
@@ -50,13 +57,19 @@ export class QuizFormComponent {
       testName: testname,
     }));
 
+    this.onSubmit();
+
+    this.loadingService.setLoading(true);
     this.quizService.getQuestions(this.quizInfo()).subscribe({
       next: (questions: TransformedQuiz[]) => {
         console.log('Received Questions: ', questions)
 
         this.localStorageService.saveQuestion(questions);
 
-        this.onCloseForm();
+        this.loadingService.setLoading(false);
+      },
+      complete: () => {
+        this.loadingService.setLoading(false);
       },
       error: (err) => {
         console.log('Failed to receive Questions (component).')

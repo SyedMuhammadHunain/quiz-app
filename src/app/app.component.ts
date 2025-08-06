@@ -14,6 +14,7 @@ import { QuizComponent } from './quiz/quiz.component';
 })
 export class AppComponent {
   isFormVisible = signal(false);
+  isQuizVisible = signal(false);
 
   onOpenForm() {
     this.isFormVisible.set(true);
@@ -21,5 +22,10 @@ export class AppComponent {
 
   onCloseForm() {
     this.isFormVisible.set(false);
+  }
+
+  onSubmitForm(val: boolean) {
+    this.isFormVisible.set(false);
+    this.isQuizVisible.set(val);
   }
 }

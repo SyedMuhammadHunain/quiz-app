@@ -4,10 +4,12 @@
 
 @if (isFormVisible()) {
 <div id="quiz-form">
-  <app-quiz-form (close)="onCloseForm()" />
+  <app-quiz-form (close)="onCloseForm()" (submit)="onSubmitForm($event)" />
+</div>
+} 
+
+@if (isQuizVisible()) {
+<div id="quiz-box">
+  <app-quiz [isSubmittedForm]="isQuizVisible()" />
 </div>
 }
-
-<div id="quiz-box">
-  <app-quiz />
-</div>

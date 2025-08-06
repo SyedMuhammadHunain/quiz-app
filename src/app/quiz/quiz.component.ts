@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
+
+import { LoadingService } from '../loading.service';
 
 @Component({
   selector: 'app-quiz',
@@ -7,5 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './quiz.component.css'
 })
 export class QuizComponent {
+  isSubmittedForm = input.required<boolean>();
 
+  private loadingService = inject(LoadingService);
+
+  isLoading = this.loadingService.loading;
 }

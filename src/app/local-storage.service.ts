@@ -9,4 +9,6 @@ export class LocalStorageService {
   saveQuestion(questions: TransformedQuiz[]) {
     localStorage.setItem('quizQuestion', JSON.stringify(questions));
   }
+
+  getQuestions() { }
 }

@@ -1,0 +1,19 @@
+@if(isLoading() && isSubmittedForm()) {
+<p>Loading...</p>
+}
+<form>
+  <fieldset>
+    <legend>Quiz Form</legend>
+    <p>Category:</p>
+    <p>Question:</p>
+
+    <label><input type="radio" name="network" /> LAN</label>
+    <label><input type="radio" name="network" /> MAN</label>
+    <label><input type="radio" name="network" /> WAN</label>
+    <label><input type="radio" name="network" /> PAN</label>
+
+    <button type="submit">Submit</button>
+    <button type="button">Leave</button>
+  </fieldset>
+</form>
+
