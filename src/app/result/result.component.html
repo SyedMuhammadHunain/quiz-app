@@ -1,4 +1,36 @@
-<table *ngFor="let result of finalResult()">
+<div style="width: 100%; max-width: 1000px; margin: 0 auto;">
+  <h2 style="text-align: center; color: #495057; margin-bottom: 2rem; font-size: 2.4rem;">Quiz Results</h2>
+  
+  @if (finalResult().length === 0) {
+  <div style="text-align: center; padding: 4rem; background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 8px;">
+    <p style="color: #6c757d; font-size: 1.8rem;">No results available yet. Take a quiz to see your results here!</p>
+  </div>
+  } @else {
+  <table>
+    <thead>
+      <tr>
+        <th>Test Name</th>
+        <th>Score</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (result of finalResult(); track result.id) {
+      <tr>
+        <td>{{ result.testName }}</td>
+        <td>{{ result.score }}</td>
+        <td>
+          <span [style.color]="result.status === 'Pass' ? '#28a745' : '#dc3545'" 
+                [style.font-weight]="'600'">
+            {{ result.status }}
+          </span>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  }
+</div>
   <tr>
     <th>Test Name</th>
     <th>Score</th>

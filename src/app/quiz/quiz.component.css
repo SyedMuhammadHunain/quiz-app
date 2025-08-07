@@ -1,12 +1,27 @@
 :host form {
-  background-color: #e8eae6;
+  background-color: #ffffff;
   display: flex;
   padding: 5rem;
-  border-radius: 5px;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 :host fieldset {
   height: 100%;
+  width: 100%;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+
+:host legend {
+  color: #495057;
+  font-weight: 600;
+  padding: 0 1rem;
 }
 
 label {
@@ -14,4 +29,41 @@ label {
   align-items: center;
   gap: 0.4em;
   margin-bottom: 0.5em;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+label:hover {
+  background-color: #e9ecef;
+}
+
+input[type="radio"] {
+  margin-right: 1rem;
+}
+
+:host p {
+  color: #495057;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+:host button {
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  color: #495057;
+  margin: 1rem 0.5rem;
+  font-weight: 500;
+}
+
+:host button[type="submit"] {
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+  color: #0c5460;
+}
+
+:host button:hover {
+  background-color: #ced4da;
 }

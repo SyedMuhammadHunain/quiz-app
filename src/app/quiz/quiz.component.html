@@ -1,5 +1,7 @@
 @if(isLoading() && isSubmittedForm()) {
-<p>Loading...</p>
+<div style="text-align: center; padding: 4rem; background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 8px; margin: 2rem auto; max-width: 400px;">
+  <p style="color: #6c757d; font-size: 2rem;">Loading questions...</p>
+</div>
 } 
 
 @if (!isLoading() && isSubmittedForm()) {
@@ -7,8 +9,8 @@
   <fieldset>
     <legend>Quiz Form</legend>
 
-    <p>Category: {{ currentQuestion().category }}</p>
-    <p>Question: {{ currentQuestion().question }}</p>
+    <p><strong>Category:</strong> {{ currentQuestion().category }}</p>
+    <p><strong>Question:</strong> {{ currentQuestion().question }}</p>
 
     @for (option of shuffleOptions(currentQuestion()); track option) {
     <label>
@@ -17,19 +19,15 @@
     </label>
     } 
     
-    @if (currentIndex() < listOfQuestions().length - 1) {
-    <button type="button" (click)="onNextQuestion()">Next</button>
-    <button type="button">Leave</button>
-    <button type="button" (click)="showAnswer(currentIndex())">
-      Show Answer
-    </button>
-    } @else if (currentIndex() === listOfQuestions().length - 1) {
-    <button type="submit">Submit</button>
-    <button type="button" (click)="showAnswer(currentIndex())">
-      Show Answer
-    </button>
-
-    }
+    <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #dee2e6;">
+      @if (currentIndex() < listOfQuestions().length - 1) {
+      <button type="button" (click)="onNextQuestion()">Next Question</button>
+      <button type="button" (click)="showAnswer(currentIndex())">Show Answer</button>
+      } @else if (currentIndex() === listOfQuestions().length - 1) {
+      <button type="submit">Submit Quiz</button>
+      <button type="button" (click)="showAnswer(currentIndex())">Show Answer</button>
+      }
+    </div>
   </fieldset>
 </form>
 }

@@ -1,4 +1,21 @@
 :host {
   font-size: 2rem;
   text-align: center;
+  width: 100%;
+}
+
+:host p {
+  color: #6c757d;
+  margin-bottom: 2rem;
+}
+
+:host button {
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  color: #495057;
+  font-weight: 500;
+  padding: 1.5rem 3rem;
+  font-size: 1.8rem;
+  width: auto;
+  min-width: 200px;
 }

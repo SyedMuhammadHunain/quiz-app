@@ -50,27 +50,30 @@
     <div class="selected-box">
       <button
         *ngIf="!isComputerScienceVisible()"
+        type="button"
         (click)="isComputerScienceVisible.set(true)"
       >
         Computer Science
       </button>
       <button
         *ngIf="!isMathematicsVisible()"
+        type="button"
         (click)="isMathematicsVisible.set(true)"
       >
         Mathematics
       </button>
       <button
         *ngIf="!isGeneralKnowledgeVisible()"
+        type="button"
         (click)="isGeneralKnowledgeVisible.set(true)"
       >
         General Knowledge
       </button>
     </div>
 
-    <div [style.textAlign]="'center'">
+    <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #dee2e6;">
       <button type="submit">Submit</button>
-      <button (click)="onCloseForm()">Close</button>
+      <button type="button" (click)="onCloseForm()">Close</button>
     </div>
   </fieldset>
 </form>

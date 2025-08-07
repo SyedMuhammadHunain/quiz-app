@@ -1,27 +1,79 @@
 :host form {
   padding: 2rem;
   font-size: 3rem;
+  background-color: #ffffff;
 }
 
 label,
 input {
-  border-radius: 5px;
+  border-radius: 6px;
   display: block;
 }
 
 input {
-  border: 0.7px solid #c7c4bf;
+  border: 1px solid #ced4da;
+  background-color: #ffffff;
+  color: #495057;
+  padding: 1rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #adb5bd;
+  background-color: #f8f9fa;
 }
 
 .selected-box,
 .category-box {
-  border: 1px solid #c7c4bf;
-  height: 11vh;
-  border-radius: 5px;
+  border: 1px solid #dee2e6;
+  min-height: 120px;
+  border-radius: 6px;
   padding: 2rem;
   margin: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  background-color: #f8f9fa;
+  flex-wrap: wrap;
+}
+
+.category-box button,
+.selected-box button {
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+  color: #495057;
+  margin: 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  width: auto;
+  min-width: 150px;
+}
+
+.category-box button:hover,
+.selected-box button:hover {
+  background-color: #e9ecef;
+}
+
+fieldset {
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+
+legend {
+  color: #495057;
+  font-weight: 600;
+  padding: 0 1rem;
+}
+
+form button[type="submit"],
+form button:not([type]) {
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  color: #495057;
+  margin: 1rem 0.5rem;
+  font-weight: 500;
 }

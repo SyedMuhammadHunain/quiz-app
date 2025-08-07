@@ -9,6 +9,11 @@ html {
   font-size: 62%;
 }
 
+body {
+  background-color: #f8f9fa;
+  color: #495057;
+}
+
 p,
 h1,
 td,
@@ -24,17 +29,19 @@ fieldset {
 }
 
 button {
-  border: 0.7px solid #c7c4bf;
-  background-color: whitesmoke;
+  border: 1px solid #dee2e6;
+  background-color: #f8f9fa;
   height: 6rem;
   width: 12rem;
   padding: 1rem;
   margin: 1rem;
   font-size: 1.6rem;
   border-radius: 5px;
+  color: #495057;
 }
 
 button:hover {
   cursor: pointer;
-  background-color: gainsboro;
+  background-color: #e9ecef;
+  border-color: #ced4da;
 }
