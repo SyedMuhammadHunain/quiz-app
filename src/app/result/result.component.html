@@ -26,19 +26,10 @@
           </span>
         </td>
       </tr>
+      } @empty {
+        <p>No results available</p>
       }
     </tbody>
   </table>
   }
 </div>
-  <tr>
-    <th>Test Name</th>
-    <th>Score</th>
-    <th>Status</th>
-  </tr>
-  <tr>
-    <td>{{ result.testName }}</td>
-    <td>{{ result.score }}</td>
-    <td>{{ result.status }}</td>
-  </tr>
-</table>
