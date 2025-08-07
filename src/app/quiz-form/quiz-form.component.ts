@@ -30,6 +30,7 @@ export class QuizFormComponent {
 
   @Output() close = new EventEmitter();
   @Output() submit = new EventEmitter();
+  @Output() testNameChange = new EventEmitter<string>();
 
   onCloseForm() {
     this.close.emit();
@@ -37,6 +38,10 @@ export class QuizFormComponent {
 
   onSubmit() {
     this.submit.emit(true);
+  }
+
+  onSendingTestName() {
+    this.testNameChange.emit(this.quizInfo().testName);
   }
 
   onSelectCategory(categoryName: string) {
@@ -56,6 +61,7 @@ export class QuizFormComponent {
       ...p,
       testName: testname,
     }));
+    this.testNameChange.emit(testname);
 
     this.onSubmit();
 
@@ -65,7 +71,7 @@ export class QuizFormComponent {
         console.log('Received Questions: ', questions)
 
         this.localStorageService.saveQuestion(questions);
-
+        console.log('List Of Questions: ', this.quizService.listOfQuestions());
         this.loadingService.setLoading(false);
       },
       complete: () => {

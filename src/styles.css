@@ -10,8 +10,10 @@ html {
 }
 
 p,
-label,
 h1,
+td,
+th,
+label,
 input,
 button,
 fieldset {

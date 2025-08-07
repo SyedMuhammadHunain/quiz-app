@@ -4,12 +4,24 @@
 
 @if (isFormVisible()) {
 <div id="quiz-form">
-  <app-quiz-form (close)="onCloseForm()" (submit)="onSubmitForm($event)" />
+  <app-quiz-form
+    (close)="onCloseForm()"
+    (submit)="onSubmitForm($event)"
+    (testNameChange)="onSettingTestName($event)"
+  />
 </div>
-} 
-
-@if (isQuizVisible()) {
+} @if (isQuizForm()) {
 <div id="quiz-box">
-  <app-quiz [isSubmittedForm]="isQuizVisible()" />
+  <app-quiz
+    [isSubmittedForm]="isQuizForm()"
+    (submitQuiz)="onQuizSubmitted()"
+    [testName]="testName()"
+  />
 </div>
 }
+
+<hr />
+
+<div id="result-box">
+  <app-result />
+</div>

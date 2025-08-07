@@ -1,19 +1,35 @@
 @if(isLoading() && isSubmittedForm()) {
 <p>Loading...</p>
-}
-<form>
+} 
+
+@if (!isLoading() && isSubmittedForm()) {
+<form (ngSubmit)="onSubmitQuiz()">
   <fieldset>
     <legend>Quiz Form</legend>
-    <p>Category:</p>
-    <p>Question:</p>
 
-    <label><input type="radio" name="network" /> LAN</label>
-    <label><input type="radio" name="network" /> MAN</label>
-    <label><input type="radio" name="network" /> WAN</label>
-    <label><input type="radio" name="network" /> PAN</label>
+    <p>Category: {{ currentQuestion().category }}</p>
+    <p>Question: {{ currentQuestion().question }}</p>
 
-    <button type="submit">Submit</button>
+    @for (option of shuffleOptions(currentQuestion()); track option) {
+    <label>
+      <input type="radio" name="question" [value]="option" [checked]="userSelectedAnswer() === option" (change)="userSelectedAnswer.set(option)"/>
+      {{ option }}
+    </label>
+    } 
+    
+    @if (currentIndex() < listOfQuestions().length - 1) {
+    <button type="button" (click)="onNextQuestion()">Next</button>
     <button type="button">Leave</button>
+    <button type="button" (click)="showAnswer(currentIndex())">
+      Show Answer
+    </button>
+    } @else if (currentIndex() === listOfQuestions().length - 1) {
+    <button type="submit">Submit</button>
+    <button type="button" (click)="showAnswer(currentIndex())">
+      Show Answer
+    </button>
+
+    }
   </fieldset>
 </form>
-
+}

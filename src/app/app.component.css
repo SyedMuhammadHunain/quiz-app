@@ -41,3 +41,11 @@
   align-items: center;
   margin: 7rem auto;
 }
+
+#result-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0rem auto 7rem;
+}

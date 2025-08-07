@@ -1,12 +1,31 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Post, Body, Get } from '@nestjs/common';
+
 import { AppService } from './app.service';
 
-@Controller()
+@Controller('results')
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService) { }
+
+  @Post()
+  postResults(
+    @Body()
+    resultData: {
+      id: string;
+      testName: string;
+      score: number;
+      status: string;
+    }[],
+  ) {
+    return this.appService.handleResults(resultData);
+  }
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  getResults(): {
+    id: string;
+    testName: string;
+    score: number;
+    status: string;
+  }[] {
+    return this.appService.getResults();
   }
 }

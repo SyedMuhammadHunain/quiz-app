@@ -16,6 +16,8 @@ export class QuizService {
   private mathematicsUrl = 'https://opentdb.com/api.php?amount=2&category=19&difficulty=easy&type=multiple';
   private generalKnowledgeUrl = 'https://opentdb.com/api.php?amount=2&category=19&difficulty=easy&type=multiple';
 
+  listOfQuestions = signal<TransformedQuiz[]>([]);
+
   private httpClient = inject(HttpClient);
 
   getQuestions(quiz: { testName: string; category: string[] }) {
@@ -48,9 +50,12 @@ export class QuizService {
 
     return forkJoin(requests)
       .pipe(
-        map(responses =>
-          responses.flatMap((response: TransformedQuiz[]) => response)
-        )
+        map((responses: TransformedQuiz[][]) => {
+          const allQuestions = responses.flat();
+          this.listOfQuestions.set(allQuestions);
+          console.log('listOfQuestions', this.listOfQuestions());
+          return allQuestions;
+        })
       );
   }
 }

@@ -1,0 +1,12 @@
+<table *ngFor="let result of finalResult()">
+  <tr>
+    <th>Test Name</th>
+    <th>Score</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>{{ result.testName }}</td>
+    <td>{{ result.score }}</td>
+    <td>{{ result.status }}</td>
+  </tr>
+</table>
